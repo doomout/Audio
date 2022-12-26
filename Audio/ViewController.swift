@@ -37,6 +37,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         audioPlayer.delegate = self 
         audioPlayer.prepareToPlay()
         audioPlayer.volume = slVolume.value
+        lblEndTime.text = convertNSTimeInterval2String(audioPlayer.duration) //오디오 파일 재생 시간의 int 값을 string 로 형변환
+        lblCurrentTime.text = convertNSTimeInterval2String(0)
+    }
+    
+    //재생 시간을 00:00으로 바꾸기 위한 함수
+    func convertNSTimeInterval2String(_ time:TimeInterval) -> String {
+        let min = Int(time/60) //재생 시간의 매개변수인 time 값을 60으로 나눈 몫을 정수 값으로 변환하여 상수 min 값에 초기화 한다.
+        let sec = Int(time.truncatingRemainder(dividingBy: 60)) //60으로 나눈 나머지 값을 정수 값으로 변환하여 sec 값에 초기화 한다.
+        let strTime = String(format: "%02d:%02d", min, sec) //00:00 형태의 문자열로 변환한다.
+        return strTime //변환한 값을 반환한다.
     }
 
     @IBAction func btnPlayAudio(_ sender: UIButton) {
