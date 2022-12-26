@@ -8,6 +8,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var MAX_VOLUME: Float = 10.0
     var progressTimer : Timer!
     
+    let timePlayerSelector:Selector = #selector(ViewController.updatePlayTime)
+    
     @IBOutlet var pvProgressPlay: UIProgressView!
     @IBOutlet var lblCurrentTime: UILabel!
     @IBOutlet var lblEndTime: UILabel!
@@ -60,6 +62,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func btnPlayAudio(_ sender: UIButton) {
         audioPlayer.play()
         setPlayButtons(false, pause: true, stop: true)
+        progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: timePlayerSelector, userInfo: nil, repeats: true)
+    }
+    
+    @objc func updatePlayTime() {
+        //재생 시간인 currentTime을 레이블에 표시한다.
+        lblCurrentTime.text = convertNSTimeInterval2String(audioPlayer.currentTime)
+        //프로그레스 뷰에 (현재 재생시간/총 재생시간)의 값을 넣는다.
+        pvProgressPlay.progress = Float(audioPlayer.currentTime/audioPlayer.duration)
     }
     
     @IBAction func btnPauseAudio(_ sender: UIButton) {
@@ -69,11 +79,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func btnStopAudio(_ sender: UIButton) {
         audioPlayer.stop()
+        audioPlayer.currentTime = 0 //오디오를 정지하고 다시 재생하면 처음부터 재생해야 하기에 시간을 0으로 설정
+        lblCurrentTime.text = convertNSTimeInterval2String(0) // 재생시간도 00:00으로 초기화
         setPlayButtons(true, pause: false, stop: false)
+        progressTimer.invalidate() //타이머도 초기화
     }
     
     
     @IBAction func slChangeVolume(_ sender: UISlider) {
+        audioPlayer.volume = slVolume.value
+    }
+    
+    //오디오 재생이 끝나면 맨 처음 상태로 돌아가는 함수
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        progressTimer.invalidate() //타이머 무효화
+        setPlayButtons(true, pause: false, stop: false)
     }
 }
 
