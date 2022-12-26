@@ -39,6 +39,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         audioPlayer.volume = slVolume.value
         lblEndTime.text = convertNSTimeInterval2String(audioPlayer.duration) //오디오 파일 재생 시간의 int 값을 string 로 형변환
         lblCurrentTime.text = convertNSTimeInterval2String(0)
+          
+        setPlayButtons(true, pause: false, stop: false)
+    }
+    
+    func setPlayButtons(_ play:Bool, pause:Bool, stop:Bool){
+        btnPlay.isEnabled = play
+        btnPause.isEnabled = pause
+        btnStop.isEnabled = stop
     }
     
     //재생 시간을 00:00으로 바꾸기 위한 함수
@@ -50,12 +58,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     }
 
     @IBAction func btnPlayAudio(_ sender: UIButton) {
+        audioPlayer.play()
+        setPlayButtons(false, pause: true, stop: true)
     }
     
     @IBAction func btnPauseAudio(_ sender: UIButton) {
+        audioPlayer.pause()
+        setPlayButtons(true, pause: false, stop: true)
     }
     
     @IBAction func btnStopAudio(_ sender: UIButton) {
+        audioPlayer.stop()
+        setPlayButtons(true, pause: false, stop: false)
     }
     
     
