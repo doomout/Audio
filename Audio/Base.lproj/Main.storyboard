@@ -59,16 +59,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="70.5" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Play"/>
+                                                <connections>
+                                                    <action selector="btnPlayAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LRN-lh-Vc9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZB-Ht-ADz">
                                                 <rect key="frame" x="151.5" y="0.0" width="70.5" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="pause"/>
+                                                <connections>
+                                                    <action selector="btnPauseAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tui-0h-DA6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocP-za-e9c">
                                                 <rect key="frame" x="303" y="0.0" width="70.5" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Stop"/>
+                                                <connections>
+                                                    <action selector="btnStopAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YNs-Ik-uCg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -83,6 +92,9 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mZB-Kp-Wl5">
                                                 <rect key="frame" x="68" y="0.0" width="164" height="31"/>
+                                                <connections>
+                                                    <action selector="slChangeVolume:" destination="BYZ-38-t0r" eventType="valueChanged" id="QxG-YW-kgy"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <constraints>
@@ -99,6 +111,15 @@
                             <constraint firstItem="ZGu-xs-57y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q25-xC-2mn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnPause" destination="UZB-Ht-ADz" id="qkW-sl-lP5"/>
+                        <outlet property="btnPlay" destination="xNF-sU-1v2" id="bjb-cK-lYw"/>
+                        <outlet property="btnStop" destination="ocP-za-e9c" id="pyy-YG-UN4"/>
+                        <outlet property="lblCurrentTime" destination="nuj-6h-woh" id="aRU-UC-ygy"/>
+                        <outlet property="lblEndTime" destination="SOs-iy-Ous" id="qCd-5W-GXp"/>
+                        <outlet property="pvProgressPlay" destination="SsY-53-qzA" id="WIP-03-eG3"/>
+                        <outlet property="slVolume" destination="mZB-Kp-Wl5" id="WkJ-tR-qSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
