@@ -20,6 +20,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var slVolume: UISlider!
     
+    @IBOutlet var btnRecord: UIButton!
+    @IBOutlet var lblRecordTime: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -94,6 +97,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         progressTimer.invalidate() //타이머 무효화
         setPlayButtons(true, pause: false, stop: false)
+    }
+    
+    
+    @IBAction func swRecordMode(_ sender: UISwitch) {
+    }
+    
+    
+    @IBAction func btnRecord(_ sender: UIButton) {
     }
 }
 
