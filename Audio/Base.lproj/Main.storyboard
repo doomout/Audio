@@ -101,10 +101,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="hkc-80-URa">
-                                <rect key="frame" x="77" y="434" width="260" height="107.5"/>
+                                <rect key="frame" x="77" y="434" width="260.5" height="107.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="hON-uI-Vwx">
-                                        <rect key="frame" x="0.0" y="0.0" width="233.5" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="157" translatesAutoresizingMaskIntoConstraints="NO" id="hON-uI-Vwx">
+                                        <rect key="frame" x="0.0" y="0.0" width="260.5" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRj-vB-fQi">
                                                 <rect key="frame" x="0.0" y="0.0" width="54.5" height="31"/>
@@ -113,7 +113,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gdq-d4-4jg">
-                                                <rect key="frame" x="184.5" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="211.5" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="swRecordMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="5aT-nB-Qso"/>
                                                 </connections>
